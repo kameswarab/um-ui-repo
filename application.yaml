@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: usermanagement-backend-development
+  namespace: argocd
+spec:
+  syncPolicy:
+    automated: {}
+  project: default
+  source:
+    repoURL: https://github.com/kameswarab/um-ui-repo.git
+    targetRevision: development
+    path: .
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
